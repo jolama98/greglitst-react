@@ -1,23 +1,27 @@
 import { House } from "../models/House"
 import HouseCard from "./HouseCard"
 
+type displays = "grid" | "masonry"
 type props = {
-  houses: House[]
+  houses: House[],
+  display?: displays
 }
 
-export default function HouseList({ houses }: props) {
-
-  return (
-
-    <div className="HouseList">
-      {houses.map(houses => {
+export default function HouseList({ houses, display }: props) {
+  if (display == 'masonry') {
+    return
+  }
+  return (<div className="row">
+    {
+      houses.map(houses => {
         return (
-          <div className="col-md-3" key={houses.id}>
+          <div className="col-md-4" key={houses.id}>
             <HouseCard house={houses} />
           </div>
         )
-      })}
-    </div>
+      })
+    }
+  </div >
   )
 
 }

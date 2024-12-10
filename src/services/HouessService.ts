@@ -10,13 +10,13 @@ class HousesService {
     AppState.houses.splice(oldCarIndex, 1, new House(res.data))
   }
 
-  async removeCar(houseId: string) {
+  async removeHouse(houseId: string) {
     const res = await api.delete('api/houses/' + houseId)
     console.log('[removing house]', res.data);
     AppState.houses = AppState.houses.filter(house => house.id != houseId)
   }
 
-  async createCar(formData: House) {
+  async createHouse(formData: House) {
     const res = await api.post('api/houses', formData)
     console.log('[create house]', res.data);
     let actualCar = new House(res.data)
@@ -24,14 +24,14 @@ class HousesService {
   }
 
 
-  async getCars() {
+  async getHouses() {
     if (AppState.houses.length) { return }
     const response = await api.get('api/houses')
     console.log('[get houses]', response.data)
     AppState.houses = response.data.map((house: House) => new House(house))
   }
 
-  async getCarById(houseId: string) {
+  async getHouseById(houseId: string) {
     if (AppState.house?.id == houseId) { return }
     AppState.house = null
     const response = await api.get('api/houses/' + houseId)
