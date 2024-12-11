@@ -3,21 +3,21 @@ import { House } from "../models/House"
 import { observer } from "mobx-react"
 import { AppState } from "../AppState"
 import Pop from "../utils/Pop"
-import { housesService } from "../services/HouessService"
+import { housesService } from "../services/HousesService"
 
-// type HouseCardProps = {
-//   house: House,
-//   showCreator?: Boolean
-// }
+type HouseCardProps = {
+  house: House,
+  showCreator?: Boolean
+}
 
-export default function HouseCard({ house }: { house: House }) {
+export default function HouseCard({ house, showCreator }: HouseCardProps) {
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
-  // const Creator = () => (showCreator ? <div>
-  //   <img src={house.creator?.picture} height={100} alt={house.creator?.name} />
-  //   <p>{house.creator?.name}</p>
-  // </div> : <></>)
+  const Creator = () => (showCreator ? <div>
+    <img src={house.creator?.picture} height={100} alt={house.creator?.name} />
+    <p>{house.creator?.name}</p>
+  </div> : <></>)
 
 
   async function deleteCar() {
@@ -25,7 +25,7 @@ export default function HouseCard({ house }: { house: House }) {
       const yes = await Pop.confirm('Are you sure?')
       if (!yes) { return }
       await housesService.removeHouse(house.id)
-      // navigate('/account')
+      navigate('/account')
     }
     catch (error) {
       Pop.error(error as Error);
@@ -42,7 +42,7 @@ export default function HouseCard({ house }: { house: House }) {
 
     return <div className='d-flex gap-3'>
       <button className='btn' title='Delete Car'><i className="mdi mdi-delete" onClick={deleteCar}></i></button>
-      <button className='btn btn-outline-secondary' title='edit car' data-bs-toggle="modal" data-bs-target="#carModal" onClick={editHouse} ><i className="mdi mdi-pencil"></i></button>
+      <button className='btn btn-outline-secondary' title='edit house' data-bs-toggle="modal" data-bs-target="#houseModal" onClick={editHouse} ><i className="mdi mdi-pencil"></i></button>
     </div>
 
   })
@@ -62,12 +62,9 @@ export default function HouseCard({ house }: { house: House }) {
           </div>
           <div className="price">
             ${house.price}
-            {house.bathrooms}
-
-
           </div>
         </div>
-        {/* <Creator /> */}
+        <Creator />
         <CreatorControls />
       </div>
     </div>

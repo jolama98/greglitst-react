@@ -19,8 +19,8 @@ class HousesService {
   async createHouse(formData: House) {
     const res = await api.post('api/houses', formData)
     console.log('[create house]', res.data);
-    let actualCar = new House(res.data)
-    AppState.houses.push(actualCar)
+    let actualHouse = new House(res.data)
+    AppState.houses.unshift(actualHouse)
   }
 
 

@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { AppState } from '../AppState';
 import { useEffect } from 'react';
-import HouesForm from './HouesForm';
+import HouesForm from './HouseForm';
 
 function HouseModal() {
   function clearHoses() {

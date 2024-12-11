@@ -3,7 +3,7 @@ import HouseCard from '../components/HouseCard';
 import { AppState } from '../AppState';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { housesService } from '../services/HouessService';
+import { housesService } from '../services/HousesService';
 import Pop from '../utils/Pop';
 
 
