@@ -44,7 +44,7 @@ function HouseFrom() {
 
     <form className="HouseFrom my-5" onSubmit={handleSubmit} key={editable.id}>
       <label htmlFor="levels" className="form-label">levels</label>
-      <input className='form-control' type="text" name='levels' placeholder='House levels' defaultValue={editable.levels} id="levels" onChange={handleChange} />
+      <input className='form-control' type="number" placeholder='House levels' defaultValue={editable.levels} id="levels" name='levels' onChange={handleChange} />
       <div className="mb-3">
         <label htmlFor="year" className="form-label">year</label>
         <input required type="number" defaultValue={editable.year} className="form-control" id="year" placeholder="year..." name="year" onChange={handleChange} />

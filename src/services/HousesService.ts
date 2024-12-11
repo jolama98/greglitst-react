@@ -20,7 +20,7 @@ class HousesService {
     const res = await api.post('api/houses', formData)
     console.log('[create house]', res.data);
     let actualHouse = new House(res.data)
-    AppState.houses.unshift(actualHouse)
+    AppState.houses.push(actualHouse)
   }
 
 

@@ -25,7 +25,7 @@ export default function HouseCard({ house, showCreator }: HouseCardProps) {
       const yes = await Pop.confirm('Are you sure?')
       if (!yes) { return }
       await housesService.removeHouse(house.id)
-      navigate('/account')
+      // navigate('/account')
     }
     catch (error) {
       Pop.error(error as Error);

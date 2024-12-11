@@ -1,7 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import { AppState } from '../AppState';
 import { useEffect } from 'react';
-import HouesForm from './HouseForm';
+
+import HouseForm from './HouseForm';
 
 function HouseModal() {
   function clearHoses() {
@@ -32,7 +33,7 @@ function HouseModal() {
               <h1 className="modal-title fs-5" id="exampleModalLabel">Edit House</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            {AppState.house ? <HouesForm /> : null}
+            {AppState.house ? <HouseForm /> : null}
           </div>
         </div>
       </div>
