@@ -34,9 +34,8 @@ function HousePage() {
       <div className="card-body">
         <div className="d-flex justify-content-between">
           <div className="card-title">
-            <p>{AppState.house?.bathrooms}</p>
-            <p >{AppState.house?.bedrooms}</p>
-
+            <p>Bathrooms <span>{AppState.house?.bathrooms}</span></p>
+            <p>Bathrooms <span>{AppState.house?.bedrooms}</span></p>
           </div>
           <div className="price">
             ${AppState.house?.price}

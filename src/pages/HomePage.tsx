@@ -1,9 +1,11 @@
 import { observer } from "mobx-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import HouseList from "../components/HouseList";
 import { AppState } from "../AppState";
 import Pop from "../utils/Pop";
 import { housesService } from "../services/HouessService";
+import { House } from "../models/House";
+import HouesForm from "../components/HouesForm";
 
 function HomePage() {
 
@@ -20,8 +22,16 @@ function HomePage() {
     getHouses()
   }, [])
 
+  function createHouse() {
+    AppState.house = House.create()
+  }
+
+
   return (
     <div className="home-page container">
+      <HouesForm />
+      {/* <button className='btn btn-lg btn-warning my-2' data-bs-toggle="modal" data-bs-target="#houseModal" onClick={createHouse}>Create House 🏚️</button> */}
+
       <div className="row">
         <HouseList houses={AppState.houses} />
       </div>
