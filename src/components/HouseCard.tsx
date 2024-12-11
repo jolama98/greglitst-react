@@ -5,19 +5,19 @@ import { AppState } from "../AppState"
 import Pop from "../utils/Pop"
 import { housesService } from "../services/HouessService"
 
-type HouseCardProps = {
-  house: House,
-  showCreator?: Boolean
-}
+// type HouseCardProps = {
+//   house: House,
+//   showCreator?: Boolean
+// }
 
-export default function HouseCard({ house, showCreator }: HouseCardProps) {
+export default function HouseCard({ house }: { house: House }) {
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  const Creator = () => (showCreator ? <div>
-    <img src={house.creator?.picture} height={100} alt={house.creator?.name} />
-    <p>{house.creator?.name}</p>
-  </div> : <></>)
+  // const Creator = () => (showCreator ? <div>
+  //   <img src={house.creator?.picture} height={100} alt={house.creator?.name} />
+  //   <p>{house.creator?.name}</p>
+  // </div> : <></>)
 
 
   async function deleteCar() {
@@ -25,7 +25,7 @@ export default function HouseCard({ house, showCreator }: HouseCardProps) {
       const yes = await Pop.confirm('Are you sure?')
       if (!yes) { return }
       await housesService.removeHouse(house.id)
-      navigate('/account')
+      // navigate('/account')
     }
     catch (error) {
       Pop.error(error as Error);
@@ -62,9 +62,12 @@ export default function HouseCard({ house, showCreator }: HouseCardProps) {
           </div>
           <div className="price">
             ${house.price}
+            {house.bathrooms}
+
+
           </div>
         </div>
-        <Creator />
+        {/* <Creator /> */}
         <CreatorControls />
       </div>
     </div>

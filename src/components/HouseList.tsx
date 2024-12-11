@@ -7,7 +7,7 @@ type props = {
   display?: displays
 }
 
-export default function HouseList({ houses, display }: props) {
+export default function HouseList({ houses, display = 'grid' }: props) {
   if (display == 'masonry') {
     return
   }

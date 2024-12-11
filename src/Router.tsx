@@ -6,6 +6,7 @@ import ErrorPage from './pages/ErrorPage.tsx';
 import HomePage from './pages/HomePage.tsx';
 import AboutPage from './pages/AboutPage.tsx';
 import AccountPage from './pages/AccountPage.tsx';
+import HousePage from './pages/HousePage.tsx';
 
 
 export const router = createHashRouter([
@@ -17,6 +18,10 @@ export const router = createHashRouter([
       {
         path: "",
         element: <HomePage />,
+      },
+      {
+        path: "houses/:houseId",
+        element: <HousePage />,
       },
       {
         path: "about",
